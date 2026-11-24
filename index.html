@@ -54,7 +54,7 @@ src="https://www.facebook.com/tr?id=1784298685973612&ev=PageView&noscript=1"
 <p style="margin: 0; font-size: 20px; line-height: 1.5; color: #DCE4EF">A free one-on-one review with Ali Hall, licensed Medicare broker in 15 states. Phone or video. No pressure to decide.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 14px; padding-top: 8px">
 <a href="https://agent.medicarecopilot.ai/meet/ali-hall" onclick="if(window.fbq)fbq('track','Schedule')" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; background: #E3B34A; color: #0D305E; font-weight: 700; font-size: 18px; border-radius: 8px; text-decoration: none">Book my free Medicare review</a>
-<a href="#video" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 600; font-size: 18px; border-radius: 8px; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M7 4l13 8-13 8z"></path></svg>Watch the video</a>
+<a href="#video" onclick="openReel(event)" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 600; font-size: 18px; border-radius: 8px; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M7 4l13 8-13 8z"></path></svg>Watch the video</a>
 </div>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #DCE4EF"><strong style="color: #E3B34A">My promise:</strong> I check, I explain until it makes sense, and you decide on your schedule. Always free to you. If I'm not the right fit, I'll tell you.</p>
 </div>
@@ -204,5 +204,17 @@ src="https://www.facebook.com/tr?id=1784298685973612&ev=PageView&noscript=1"
 </footer>
 
 </div>
+
+<div id="reel-modal" role="dialog" aria-modal="true" aria-label="Video" onclick="if(event.target===this)closeReel()" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(8,30,59,0.85);align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+<div style="position:relative;width:100%;max-width:420px">
+<button type="button" onclick="closeReel()" aria-label="Close video" style="position:absolute;top:-52px;right:0;width:44px;height:44px;border-radius:50%;border:none;background:#E3B34A;color:#0D305E;font-size:26px;font-weight:700;cursor:pointer">&times;</button>
+<iframe id="reel-modal-frame" title="Ali Hall on Instagram" scrolling="no" allowtransparency="true" allowfullscreen="true" style="width:100%;height:min(760px,calc(100vh - 100px));border:0;border-radius:16px;background:#FFFFFF"></iframe>
+</div>
+</div>
+<script>
+function openReel(e){e.preventDefault();var m=document.getElementById('reel-modal'),f=document.getElementById('reel-modal-frame');f.src='https://www.instagram.com/reel/Dfw46FtMhhs/embed';m.style.display='flex';document.body.style.overflow='hidden';if(window.fbq)fbq('track','ViewContent');}
+function closeReel(){var m=document.getElementById('reel-modal');document.getElementById('reel-modal-frame').src='about:blank';m.style.display='none';document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeReel();});
+</script>
 </body>
 </html>
